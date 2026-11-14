@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse, share, and enjoy memes at Meme Museum.">
+  <title>Meme Museum</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Meme Museum home"><span class="brand-icon">MM</span><span>Meme <b>Museum</b></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#home" data-page="home">Home</a>
+      <a href="#contact" data-page="contact">Contact</a>
+    </nav>
+    <div class="account-area"><span id="welcome"></span><button id="auth-button" class="button button-light" type="button">Login / Register</button><button id="logout-button" class="button button-light hidden" type="button">Log out</button></div>
+  </header>
+  <main>
+    <section id="home-page" class="page">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">A little joy for your scroll</p><h1>Welcome to the<br><span>Meme Museum</span></h1><p>Discover the internet’s finest collection. Laugh, share, and add a masterpiece of your own.</p><button class="button button-primary" id="hero-upload" type="button">＋ Upload a meme</button></div>
+        <div class="hero-art" aria-hidden="true"><div class="art-card art-back">😂</div><div class="art-card art-front">✨<small>museum-worthy</small></div></div>
+      </section>
+      <section class="tools-row"><label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search captions or categories…" aria-label="Search memes"></label><label class="select-wrap"><span class="sr-only">Filter by category</span><select id="category-filter"><option value="All">All categories</option></select></label></section>
+      <section class="section-block"><div class="section-heading"><div><p class="eyebrow">What everyone’s enjoying</p><h2>Trending memes <span>↗</span></h2></div><button class="text-button" id="show-all" type="button">Newest first ↓</button></div><div id="meme-grid" class="meme-grid"></div><p id="empty-state" class="empty-state hidden">No memes found. Try another search or upload the first one!</p></section>
+      <section class="popular-strip"><div><p class="eyebrow">Community favourite</p><h2>Most-liked meme</h2></div><div id="popular-meme" class="popular-content">Loading…</div></section>
+    </section>
+
+    <section id="details-page" class="page hidden"><button class="back-button" id="back-home" type="button">← Back to memes</button><div id="details-content"></div></section>
+
+    <section id="auth-page" class="page hidden"><div class="form-card auth-card"><p class="eyebrow">Join the community</p><h1 id="auth-title">Welcome back</h1><p class="muted" id="auth-subtitle">Log in to like, comment, and upload memes.</p><div class="tabs"><button class="tab active" data-auth-mode="login" type="button">Log in</button><button class="tab" data-auth-mode="register" type="button">Create account</button></div><form id="auth-form"><label id="name-field" class="hidden">Your name<input name="username" maxlength="30" placeholder="e.g. Meme Fan"></label><label>Email address<input type="email" name="email" required placeholder="you@example.com"></label><label>Password<input type="password" name="password" required minlength="6" placeholder="At least 6 characters"></label><button class="button button-primary full-width" id="auth-submit" type="submit">Log in</button><p class="form-message" id="auth-message" role="status"></p></form></div></section>
+
+    <section id="upload-page" class="page hidden"><div class="form-card"><p class="eyebrow">Add to the collection</p><h1>Upload a meme</h1><p class="muted">Share an image, give it a caption, and choose a category.</p><form id="upload-form"><label>Choose an image<input type="file" name="image" accept="image/png,image/jpeg,image/gif,image/webp" required><small>PNG, JPG, GIF, or WEBP. Maximum 5 MB.</small></label><div id="image-preview" class="image-preview hidden"></div><label>Caption<input name="caption" maxlength="180" required placeholder="Write a funny caption…"></label><label>Category<select name="category"><option>College</option><option>Programming</option><option>Animals</option><option>Gaming</option><option>Movies & TV</option><option>Everyday life</option><option>Other</option></select></label><button class="button button-primary full-width" type="submit">Upload meme</button><p class="form-message" id="upload-message" role="status"></p></form></div></section>
+
+    <section id="contact-page" class="page hidden"><div class="form-card"><p class="eyebrow">We’d love to hear from you</p><h1>Contact us</h1><p class="muted">Send a question or suggestion to the Meme Museum team.</p><form id="contact-form"><label>Your name<input name="name" required maxlength="80"></label><label>Email address<input name="email" type="email" required maxlength="100"></label><label>Message<textarea name="message" required maxlength="1000" rows="5" placeholder="Write your message…"></textarea></label><button class="button button-primary full-width" type="submit">Send message</button><p class="form-message" id="contact-message" role="status"></p></form></div></section>
+  </main>
+  <footer><span class="brand-icon small">MM</span><span>Meme Museum</span><span class="footer-note">Made for people who appreciate internet culture.</span></footer>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

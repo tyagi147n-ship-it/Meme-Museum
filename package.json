@@ -1,0 +1,7 @@
+{
+  "name": "meme-museum",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Beginner-friendly Meme Museum project using only Node.js built-in modules",
+  "scripts": { "start": "node server.js" }
+}
